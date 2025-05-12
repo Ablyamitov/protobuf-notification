@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "notification/proto;proto";
+
+service NotificationService {
+  rpc CreateUserProfile (CreateUserProfileRequest) returns (CreateUserProfileResponse);
+  rpc SetUpAuthToken (SetUpAuthTokenRequest) returns (SetUpAuthTokenResponse);
+  rpc ValidateAuthToken (ValidateAuthTokenRequest) returns (ValidateAuthTokenResponse);
+  rpc ConfirmEmail (ConfirmEmailRequest) returns (ConfirmEmailResponse);
+  rpc UpdateReceiveEmail (UpdateReceiveEmailRequest) returns (UpdateReceiveEmailResponse);
+
+
+}
+
+// ======= Запросы =======
+
+message CreateUserProfileRequest {
+  int64 user_chat_id = 1;
+}
+
+message SetUpAuthTokenRequest {
+  int64 user_chat_id = 1;
+}
+
+message ValidateAuthTokenRequest {
+  int64 user_chat_id = 1;
+  string token = 2;
+}
+
+message ConfirmEmailRequest {
+  string token = 1;
+}
+
+message UpdateReceiveEmailRequest {
+  int64 user_chat_id = 1;
+}
+
+
+
+
+// ======= Ответы =======
+
+message CreateUserProfileResponse {
+  bool ok = 1;
+}
+
+message SetUpAuthTokenResponse {
+  string token = 1;
+}
+
+message ValidateAuthTokenResponse {
+  bool ok = 1;
+}
+  
+message ConfirmEmailResponse {
+  bool ok = 1;
+}
+  
+message UpdateReceiveEmailResponse {
+  bool receive_email = 1;
+}
+  
+  
+
+
