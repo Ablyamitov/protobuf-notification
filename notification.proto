@@ -10,8 +10,9 @@ service NotificationService {
   rpc ValidateAuthToken (ValidateAuthTokenRequest) returns (ValidateAuthTokenResponse);
   rpc ConfirmEmail (ConfirmEmailRequest) returns (ConfirmEmailResponse);
   rpc UpdateReceiveEmail (UpdateReceiveEmailRequest) returns (UpdateReceiveEmailResponse);
-
-
+  rpc ProcessEmail (ProcessEmailRequest) returns (ProcessEmailResponse);
+  rpc SendCode (SendCodeRequest) returns (SendCodeResponse);
+  rpc VerifyCode (VerifyCodeRequest) returns (VerifyCodeResponse);
 }
 
 // ======= Запросы =======
@@ -37,7 +38,20 @@ message UpdateReceiveEmailRequest {
   int64 user_chat_id = 1;
 }
 
+message ProcessEmailRequest {
+	string email = 1;
+	string smtp_password = 2;
+	int64 user_chat_id = 3;
+}
 
+message SendCodeRequest {
+	string email = 1;
+}
+
+message VerifyCodeRequest {
+	string email = 1;
+	string code = 2;
+}
 
 
 // ======= Ответы =======
@@ -60,6 +74,18 @@ message ConfirmEmailResponse {
   
 message UpdateReceiveEmailResponse {
   bool receive_email = 1;
+}
+
+message ProcessEmailResponse {
+  string message = 1; 
+}
+
+message SendCodeResponse {
+	bool success = 1;
+}
+
+message VerifyCodeResponse {
+	bool success = 1;
 }
   
   

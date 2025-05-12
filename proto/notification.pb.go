@@ -249,6 +249,162 @@ func (x *UpdateReceiveEmailRequest) GetUserChatId() int64 {
 	return 0
 }
 
+type ProcessEmailRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	SmtpPassword  string                 `protobuf:"bytes,2,opt,name=smtp_password,json=smtpPassword,proto3" json:"smtp_password,omitempty"`
+	UserChatId    int64                  `protobuf:"varint,3,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProcessEmailRequest) Reset() {
+	*x = ProcessEmailRequest{}
+	mi := &file_notification_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProcessEmailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcessEmailRequest) ProtoMessage() {}
+
+func (x *ProcessEmailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcessEmailRequest.ProtoReflect.Descriptor instead.
+func (*ProcessEmailRequest) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ProcessEmailRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *ProcessEmailRequest) GetSmtpPassword() string {
+	if x != nil {
+		return x.SmtpPassword
+	}
+	return ""
+}
+
+func (x *ProcessEmailRequest) GetUserChatId() int64 {
+	if x != nil {
+		return x.UserChatId
+	}
+	return 0
+}
+
+type SendCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendCodeRequest) Reset() {
+	*x = SendCodeRequest{}
+	mi := &file_notification_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendCodeRequest) ProtoMessage() {}
+
+func (x *SendCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendCodeRequest.ProtoReflect.Descriptor instead.
+func (*SendCodeRequest) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *SendCodeRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+type VerifyCodeRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Email         string                 `protobuf:"bytes,1,opt,name=email,proto3" json:"email,omitempty"`
+	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *VerifyCodeRequest) Reset() {
+	*x = VerifyCodeRequest{}
+	mi := &file_notification_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *VerifyCodeRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VerifyCodeRequest) ProtoMessage() {}
+
+func (x *VerifyCodeRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VerifyCodeRequest.ProtoReflect.Descriptor instead.
+func (*VerifyCodeRequest) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *VerifyCodeRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *VerifyCodeRequest) GetCode() string {
+	if x != nil {
+		return x.Code
+	}
+	return ""
+}
+
 type CreateUserProfileResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ok            bool                   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
@@ -258,7 +414,7 @@ type CreateUserProfileResponse struct {
 
 func (x *CreateUserProfileResponse) Reset() {
 	*x = CreateUserProfileResponse{}
-	mi := &file_notification_proto_msgTypes[5]
+	mi := &file_notification_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -270,7 +426,7 @@ func (x *CreateUserProfileResponse) String() string {
 func (*CreateUserProfileResponse) ProtoMessage() {}
 
 func (x *CreateUserProfileResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[5]
+	mi := &file_notification_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -283,7 +439,7 @@ func (x *CreateUserProfileResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateUserProfileResponse.ProtoReflect.Descriptor instead.
 func (*CreateUserProfileResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{5}
+	return file_notification_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateUserProfileResponse) GetOk() bool {
@@ -302,7 +458,7 @@ type SetUpAuthTokenResponse struct {
 
 func (x *SetUpAuthTokenResponse) Reset() {
 	*x = SetUpAuthTokenResponse{}
-	mi := &file_notification_proto_msgTypes[6]
+	mi := &file_notification_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -314,7 +470,7 @@ func (x *SetUpAuthTokenResponse) String() string {
 func (*SetUpAuthTokenResponse) ProtoMessage() {}
 
 func (x *SetUpAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[6]
+	mi := &file_notification_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -327,7 +483,7 @@ func (x *SetUpAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*SetUpAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{6}
+	return file_notification_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *SetUpAuthTokenResponse) GetToken() string {
@@ -346,7 +502,7 @@ type ValidateAuthTokenResponse struct {
 
 func (x *ValidateAuthTokenResponse) Reset() {
 	*x = ValidateAuthTokenResponse{}
-	mi := &file_notification_proto_msgTypes[7]
+	mi := &file_notification_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -358,7 +514,7 @@ func (x *ValidateAuthTokenResponse) String() string {
 func (*ValidateAuthTokenResponse) ProtoMessage() {}
 
 func (x *ValidateAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[7]
+	mi := &file_notification_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -371,7 +527,7 @@ func (x *ValidateAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*ValidateAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{7}
+	return file_notification_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *ValidateAuthTokenResponse) GetOk() bool {
@@ -390,7 +546,7 @@ type ConfirmEmailResponse struct {
 
 func (x *ConfirmEmailResponse) Reset() {
 	*x = ConfirmEmailResponse{}
-	mi := &file_notification_proto_msgTypes[8]
+	mi := &file_notification_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -402,7 +558,7 @@ func (x *ConfirmEmailResponse) String() string {
 func (*ConfirmEmailResponse) ProtoMessage() {}
 
 func (x *ConfirmEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[8]
+	mi := &file_notification_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -415,7 +571,7 @@ func (x *ConfirmEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfirmEmailResponse.ProtoReflect.Descriptor instead.
 func (*ConfirmEmailResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{8}
+	return file_notification_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *ConfirmEmailResponse) GetOk() bool {
@@ -434,7 +590,7 @@ type UpdateReceiveEmailResponse struct {
 
 func (x *UpdateReceiveEmailResponse) Reset() {
 	*x = UpdateReceiveEmailResponse{}
-	mi := &file_notification_proto_msgTypes[9]
+	mi := &file_notification_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -446,7 +602,7 @@ func (x *UpdateReceiveEmailResponse) String() string {
 func (*UpdateReceiveEmailResponse) ProtoMessage() {}
 
 func (x *UpdateReceiveEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[9]
+	mi := &file_notification_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -459,12 +615,144 @@ func (x *UpdateReceiveEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateReceiveEmailResponse.ProtoReflect.Descriptor instead.
 func (*UpdateReceiveEmailResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{9}
+	return file_notification_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *UpdateReceiveEmailResponse) GetReceiveEmail() bool {
 	if x != nil {
 		return x.ReceiveEmail
+	}
+	return false
+}
+
+type ProcessEmailResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProcessEmailResponse) Reset() {
+	*x = ProcessEmailResponse{}
+	mi := &file_notification_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProcessEmailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProcessEmailResponse) ProtoMessage() {}
+
+func (x *ProcessEmailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProcessEmailResponse.ProtoReflect.Descriptor instead.
+func (*ProcessEmailResponse) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ProcessEmailResponse) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type SendCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendCodeResponse) Reset() {
+	*x = SendCodeResponse{}
+	mi := &file_notification_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendCodeResponse) ProtoMessage() {}
+
+func (x *SendCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendCodeResponse.ProtoReflect.Descriptor instead.
+func (*SendCodeResponse) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *SendCodeResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
+	}
+	return false
+}
+
+type VerifyCodeResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *VerifyCodeResponse) Reset() {
+	*x = VerifyCodeResponse{}
+	mi := &file_notification_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *VerifyCodeResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*VerifyCodeResponse) ProtoMessage() {}
+
+func (x *VerifyCodeResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use VerifyCodeResponse.ProtoReflect.Descriptor instead.
+func (*VerifyCodeResponse) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *VerifyCodeResponse) GetSuccess() bool {
+	if x != nil {
+		return x.Success
 	}
 	return false
 }
@@ -488,7 +776,17 @@ const file_notification_proto_rawDesc = "" +
 	"\x05token\x18\x01 \x01(\tR\x05token\"=\n" +
 	"\x19UpdateReceiveEmailRequest\x12 \n" +
 	"\fuser_chat_id\x18\x01 \x01(\x03R\n" +
-	"userChatId\"+\n" +
+	"userChatId\"r\n" +
+	"\x13ProcessEmailRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12#\n" +
+	"\rsmtp_password\x18\x02 \x01(\tR\fsmtpPassword\x12 \n" +
+	"\fuser_chat_id\x18\x03 \x01(\x03R\n" +
+	"userChatId\"'\n" +
+	"\x0fSendCodeRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\"=\n" +
+	"\x11VerifyCodeRequest\x12\x14\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\x12\x12\n" +
+	"\x04code\x18\x02 \x01(\tR\x04code\"+\n" +
 	"\x19CreateUserProfileResponse\x12\x0e\n" +
 	"\x02ok\x18\x01 \x01(\bR\x02ok\".\n" +
 	"\x16SetUpAuthTokenResponse\x12\x14\n" +
@@ -498,13 +796,23 @@ const file_notification_proto_rawDesc = "" +
 	"\x14ConfirmEmailResponse\x12\x0e\n" +
 	"\x02ok\x18\x01 \x01(\bR\x02ok\"A\n" +
 	"\x1aUpdateReceiveEmailResponse\x12#\n" +
-	"\rreceive_email\x18\x01 \x01(\bR\freceiveEmail2\xb8\x03\n" +
+	"\rreceive_email\x18\x01 \x01(\bR\freceiveEmail\"0\n" +
+	"\x14ProcessEmailResponse\x12\x18\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\",\n" +
+	"\x10SendCodeResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess\".\n" +
+	"\x12VerifyCodeResponse\x12\x18\n" +
+	"\asuccess\x18\x01 \x01(\bR\asuccess2\x81\x05\n" +
 	"\x13NotificationService\x12V\n" +
 	"\x11CreateUserProfile\x12\x1f.proto.CreateUserProfileRequest\x1a .proto.CreateUserProfileResponse\x12M\n" +
 	"\x0eSetUpAuthToken\x12\x1c.proto.SetUpAuthTokenRequest\x1a\x1d.proto.SetUpAuthTokenResponse\x12V\n" +
 	"\x11ValidateAuthToken\x12\x1f.proto.ValidateAuthTokenRequest\x1a .proto.ValidateAuthTokenResponse\x12G\n" +
 	"\fConfirmEmail\x12\x1a.proto.ConfirmEmailRequest\x1a\x1b.proto.ConfirmEmailResponse\x12Y\n" +
-	"\x12UpdateReceiveEmail\x12 .proto.UpdateReceiveEmailRequest\x1a!.proto.UpdateReceiveEmailResponseB\x1aZ\x18notification/proto;protob\x06proto3"
+	"\x12UpdateReceiveEmail\x12 .proto.UpdateReceiveEmailRequest\x1a!.proto.UpdateReceiveEmailResponse\x12G\n" +
+	"\fProcessEmail\x12\x1a.proto.ProcessEmailRequest\x1a\x1b.proto.ProcessEmailResponse\x12;\n" +
+	"\bSendCode\x12\x16.proto.SendCodeRequest\x1a\x17.proto.SendCodeResponse\x12A\n" +
+	"\n" +
+	"VerifyCode\x12\x18.proto.VerifyCodeRequest\x1a\x19.proto.VerifyCodeResponseB\x1aZ\x18notification/proto;protob\x06proto3"
 
 var (
 	file_notification_proto_rawDescOnce sync.Once
@@ -518,35 +826,47 @@ func file_notification_proto_rawDescGZIP() []byte {
 	return file_notification_proto_rawDescData
 }
 
-var file_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_notification_proto_goTypes = []any{
 	(*CreateUserProfileRequest)(nil),   // 0: proto.CreateUserProfileRequest
 	(*SetUpAuthTokenRequest)(nil),      // 1: proto.SetUpAuthTokenRequest
 	(*ValidateAuthTokenRequest)(nil),   // 2: proto.ValidateAuthTokenRequest
 	(*ConfirmEmailRequest)(nil),        // 3: proto.ConfirmEmailRequest
 	(*UpdateReceiveEmailRequest)(nil),  // 4: proto.UpdateReceiveEmailRequest
-	(*CreateUserProfileResponse)(nil),  // 5: proto.CreateUserProfileResponse
-	(*SetUpAuthTokenResponse)(nil),     // 6: proto.SetUpAuthTokenResponse
-	(*ValidateAuthTokenResponse)(nil),  // 7: proto.ValidateAuthTokenResponse
-	(*ConfirmEmailResponse)(nil),       // 8: proto.ConfirmEmailResponse
-	(*UpdateReceiveEmailResponse)(nil), // 9: proto.UpdateReceiveEmailResponse
+	(*ProcessEmailRequest)(nil),        // 5: proto.ProcessEmailRequest
+	(*SendCodeRequest)(nil),            // 6: proto.SendCodeRequest
+	(*VerifyCodeRequest)(nil),          // 7: proto.VerifyCodeRequest
+	(*CreateUserProfileResponse)(nil),  // 8: proto.CreateUserProfileResponse
+	(*SetUpAuthTokenResponse)(nil),     // 9: proto.SetUpAuthTokenResponse
+	(*ValidateAuthTokenResponse)(nil),  // 10: proto.ValidateAuthTokenResponse
+	(*ConfirmEmailResponse)(nil),       // 11: proto.ConfirmEmailResponse
+	(*UpdateReceiveEmailResponse)(nil), // 12: proto.UpdateReceiveEmailResponse
+	(*ProcessEmailResponse)(nil),       // 13: proto.ProcessEmailResponse
+	(*SendCodeResponse)(nil),           // 14: proto.SendCodeResponse
+	(*VerifyCodeResponse)(nil),         // 15: proto.VerifyCodeResponse
 }
 var file_notification_proto_depIdxs = []int32{
-	0, // 0: proto.NotificationService.CreateUserProfile:input_type -> proto.CreateUserProfileRequest
-	1, // 1: proto.NotificationService.SetUpAuthToken:input_type -> proto.SetUpAuthTokenRequest
-	2, // 2: proto.NotificationService.ValidateAuthToken:input_type -> proto.ValidateAuthTokenRequest
-	3, // 3: proto.NotificationService.ConfirmEmail:input_type -> proto.ConfirmEmailRequest
-	4, // 4: proto.NotificationService.UpdateReceiveEmail:input_type -> proto.UpdateReceiveEmailRequest
-	5, // 5: proto.NotificationService.CreateUserProfile:output_type -> proto.CreateUserProfileResponse
-	6, // 6: proto.NotificationService.SetUpAuthToken:output_type -> proto.SetUpAuthTokenResponse
-	7, // 7: proto.NotificationService.ValidateAuthToken:output_type -> proto.ValidateAuthTokenResponse
-	8, // 8: proto.NotificationService.ConfirmEmail:output_type -> proto.ConfirmEmailResponse
-	9, // 9: proto.NotificationService.UpdateReceiveEmail:output_type -> proto.UpdateReceiveEmailResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: proto.NotificationService.CreateUserProfile:input_type -> proto.CreateUserProfileRequest
+	1,  // 1: proto.NotificationService.SetUpAuthToken:input_type -> proto.SetUpAuthTokenRequest
+	2,  // 2: proto.NotificationService.ValidateAuthToken:input_type -> proto.ValidateAuthTokenRequest
+	3,  // 3: proto.NotificationService.ConfirmEmail:input_type -> proto.ConfirmEmailRequest
+	4,  // 4: proto.NotificationService.UpdateReceiveEmail:input_type -> proto.UpdateReceiveEmailRequest
+	5,  // 5: proto.NotificationService.ProcessEmail:input_type -> proto.ProcessEmailRequest
+	6,  // 6: proto.NotificationService.SendCode:input_type -> proto.SendCodeRequest
+	7,  // 7: proto.NotificationService.VerifyCode:input_type -> proto.VerifyCodeRequest
+	8,  // 8: proto.NotificationService.CreateUserProfile:output_type -> proto.CreateUserProfileResponse
+	9,  // 9: proto.NotificationService.SetUpAuthToken:output_type -> proto.SetUpAuthTokenResponse
+	10, // 10: proto.NotificationService.ValidateAuthToken:output_type -> proto.ValidateAuthTokenResponse
+	11, // 11: proto.NotificationService.ConfirmEmail:output_type -> proto.ConfirmEmailResponse
+	12, // 12: proto.NotificationService.UpdateReceiveEmail:output_type -> proto.UpdateReceiveEmailResponse
+	13, // 13: proto.NotificationService.ProcessEmail:output_type -> proto.ProcessEmailResponse
+	14, // 14: proto.NotificationService.SendCode:output_type -> proto.SendCodeResponse
+	15, // 15: proto.NotificationService.VerifyCode:output_type -> proto.VerifyCodeResponse
+	8,  // [8:16] is the sub-list for method output_type
+	0,  // [0:8] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_notification_proto_init() }
@@ -560,7 +880,7 @@ func file_notification_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_notification_proto_rawDesc), len(file_notification_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

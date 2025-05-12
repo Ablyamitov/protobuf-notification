@@ -24,6 +24,9 @@ const (
 	NotificationService_ValidateAuthToken_FullMethodName  = "/proto.NotificationService/ValidateAuthToken"
 	NotificationService_ConfirmEmail_FullMethodName       = "/proto.NotificationService/ConfirmEmail"
 	NotificationService_UpdateReceiveEmail_FullMethodName = "/proto.NotificationService/UpdateReceiveEmail"
+	NotificationService_ProcessEmail_FullMethodName       = "/proto.NotificationService/ProcessEmail"
+	NotificationService_SendCode_FullMethodName           = "/proto.NotificationService/SendCode"
+	NotificationService_VerifyCode_FullMethodName         = "/proto.NotificationService/VerifyCode"
 )
 
 // NotificationServiceClient is the client API for NotificationService service.
@@ -35,6 +38,9 @@ type NotificationServiceClient interface {
 	ValidateAuthToken(ctx context.Context, in *ValidateAuthTokenRequest, opts ...grpc.CallOption) (*ValidateAuthTokenResponse, error)
 	ConfirmEmail(ctx context.Context, in *ConfirmEmailRequest, opts ...grpc.CallOption) (*ConfirmEmailResponse, error)
 	UpdateReceiveEmail(ctx context.Context, in *UpdateReceiveEmailRequest, opts ...grpc.CallOption) (*UpdateReceiveEmailResponse, error)
+	ProcessEmail(ctx context.Context, in *ProcessEmailRequest, opts ...grpc.CallOption) (*ProcessEmailResponse, error)
+	SendCode(ctx context.Context, in *SendCodeRequest, opts ...grpc.CallOption) (*SendCodeResponse, error)
+	VerifyCode(ctx context.Context, in *VerifyCodeRequest, opts ...grpc.CallOption) (*VerifyCodeResponse, error)
 }
 
 type notificationServiceClient struct {
@@ -95,6 +101,36 @@ func (c *notificationServiceClient) UpdateReceiveEmail(ctx context.Context, in *
 	return out, nil
 }
 
+func (c *notificationServiceClient) ProcessEmail(ctx context.Context, in *ProcessEmailRequest, opts ...grpc.CallOption) (*ProcessEmailResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ProcessEmailResponse)
+	err := c.cc.Invoke(ctx, NotificationService_ProcessEmail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *notificationServiceClient) SendCode(ctx context.Context, in *SendCodeRequest, opts ...grpc.CallOption) (*SendCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendCodeResponse)
+	err := c.cc.Invoke(ctx, NotificationService_SendCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *notificationServiceClient) VerifyCode(ctx context.Context, in *VerifyCodeRequest, opts ...grpc.CallOption) (*VerifyCodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(VerifyCodeResponse)
+	err := c.cc.Invoke(ctx, NotificationService_VerifyCode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // NotificationServiceServer is the server API for NotificationService service.
 // All implementations must embed UnimplementedNotificationServiceServer
 // for forward compatibility.
@@ -104,6 +140,9 @@ type NotificationServiceServer interface {
 	ValidateAuthToken(context.Context, *ValidateAuthTokenRequest) (*ValidateAuthTokenResponse, error)
 	ConfirmEmail(context.Context, *ConfirmEmailRequest) (*ConfirmEmailResponse, error)
 	UpdateReceiveEmail(context.Context, *UpdateReceiveEmailRequest) (*UpdateReceiveEmailResponse, error)
+	ProcessEmail(context.Context, *ProcessEmailRequest) (*ProcessEmailResponse, error)
+	SendCode(context.Context, *SendCodeRequest) (*SendCodeResponse, error)
+	VerifyCode(context.Context, *VerifyCodeRequest) (*VerifyCodeResponse, error)
 	mustEmbedUnimplementedNotificationServiceServer()
 }
 
@@ -128,6 +167,15 @@ func (UnimplementedNotificationServiceServer) ConfirmEmail(context.Context, *Con
 }
 func (UnimplementedNotificationServiceServer) UpdateReceiveEmail(context.Context, *UpdateReceiveEmailRequest) (*UpdateReceiveEmailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateReceiveEmail not implemented")
+}
+func (UnimplementedNotificationServiceServer) ProcessEmail(context.Context, *ProcessEmailRequest) (*ProcessEmailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProcessEmail not implemented")
+}
+func (UnimplementedNotificationServiceServer) SendCode(context.Context, *SendCodeRequest) (*SendCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendCode not implemented")
+}
+func (UnimplementedNotificationServiceServer) VerifyCode(context.Context, *VerifyCodeRequest) (*VerifyCodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VerifyCode not implemented")
 }
 func (UnimplementedNotificationServiceServer) mustEmbedUnimplementedNotificationServiceServer() {}
 func (UnimplementedNotificationServiceServer) testEmbeddedByValue()                             {}
@@ -240,6 +288,60 @@ func _NotificationService_UpdateReceiveEmail_Handler(srv interface{}, ctx contex
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NotificationService_ProcessEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProcessEmailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotificationServiceServer).ProcessEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotificationService_ProcessEmail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotificationServiceServer).ProcessEmail(ctx, req.(*ProcessEmailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NotificationService_SendCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotificationServiceServer).SendCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotificationService_SendCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotificationServiceServer).SendCode(ctx, req.(*SendCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NotificationService_VerifyCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VerifyCodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotificationServiceServer).VerifyCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotificationService_VerifyCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotificationServiceServer).VerifyCode(ctx, req.(*VerifyCodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // NotificationService_ServiceDesc is the grpc.ServiceDesc for NotificationService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -266,6 +368,18 @@ var NotificationService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateReceiveEmail",
 			Handler:    _NotificationService_UpdateReceiveEmail_Handler,
+		},
+		{
+			MethodName: "ProcessEmail",
+			Handler:    _NotificationService_ProcessEmail_Handler,
+		},
+		{
+			MethodName: "SendCode",
+			Handler:    _NotificationService_SendCode_Handler,
+		},
+		{
+			MethodName: "VerifyCode",
+			Handler:    _NotificationService_VerifyCode_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
