@@ -21,7 +21,50 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// ======= Запросы =======
+type CreateUserProfileRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserChatId    int64                  `protobuf:"varint,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUserProfileRequest) Reset() {
+	*x = CreateUserProfileRequest{}
+	mi := &file_notification_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUserProfileRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUserProfileRequest) ProtoMessage() {}
+
+func (x *CreateUserProfileRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUserProfileRequest.ProtoReflect.Descriptor instead.
+func (*CreateUserProfileRequest) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CreateUserProfileRequest) GetUserChatId() int64 {
+	if x != nil {
+		return x.UserChatId
+	}
+	return 0
+}
+
 type SetUpAuthTokenRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserChatId    int64                  `protobuf:"varint,1,opt,name=user_chat_id,json=userChatId,proto3" json:"user_chat_id,omitempty"`
@@ -31,7 +74,7 @@ type SetUpAuthTokenRequest struct {
 
 func (x *SetUpAuthTokenRequest) Reset() {
 	*x = SetUpAuthTokenRequest{}
-	mi := &file_notification_proto_msgTypes[0]
+	mi := &file_notification_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +86,7 @@ func (x *SetUpAuthTokenRequest) String() string {
 func (*SetUpAuthTokenRequest) ProtoMessage() {}
 
 func (x *SetUpAuthTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[0]
+	mi := &file_notification_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +99,7 @@ func (x *SetUpAuthTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpAuthTokenRequest.ProtoReflect.Descriptor instead.
 func (*SetUpAuthTokenRequest) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{0}
+	return file_notification_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *SetUpAuthTokenRequest) GetUserChatId() int64 {
@@ -76,7 +119,7 @@ type ValidateAuthTokenRequest struct {
 
 func (x *ValidateAuthTokenRequest) Reset() {
 	*x = ValidateAuthTokenRequest{}
-	mi := &file_notification_proto_msgTypes[1]
+	mi := &file_notification_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -88,7 +131,7 @@ func (x *ValidateAuthTokenRequest) String() string {
 func (*ValidateAuthTokenRequest) ProtoMessage() {}
 
 func (x *ValidateAuthTokenRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[1]
+	mi := &file_notification_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -101,7 +144,7 @@ func (x *ValidateAuthTokenRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateAuthTokenRequest.ProtoReflect.Descriptor instead.
 func (*ValidateAuthTokenRequest) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{1}
+	return file_notification_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *ValidateAuthTokenRequest) GetUserChatId() int64 {
@@ -127,7 +170,7 @@ type ConfirmEmailRequest struct {
 
 func (x *ConfirmEmailRequest) Reset() {
 	*x = ConfirmEmailRequest{}
-	mi := &file_notification_proto_msgTypes[2]
+	mi := &file_notification_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -139,7 +182,7 @@ func (x *ConfirmEmailRequest) String() string {
 func (*ConfirmEmailRequest) ProtoMessage() {}
 
 func (x *ConfirmEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[2]
+	mi := &file_notification_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -152,7 +195,7 @@ func (x *ConfirmEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfirmEmailRequest.ProtoReflect.Descriptor instead.
 func (*ConfirmEmailRequest) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{2}
+	return file_notification_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *ConfirmEmailRequest) GetToken() string {
@@ -171,7 +214,7 @@ type UpdateReceiveEmailRequest struct {
 
 func (x *UpdateReceiveEmailRequest) Reset() {
 	*x = UpdateReceiveEmailRequest{}
-	mi := &file_notification_proto_msgTypes[3]
+	mi := &file_notification_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -183,7 +226,7 @@ func (x *UpdateReceiveEmailRequest) String() string {
 func (*UpdateReceiveEmailRequest) ProtoMessage() {}
 
 func (x *UpdateReceiveEmailRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[3]
+	mi := &file_notification_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -196,7 +239,7 @@ func (x *UpdateReceiveEmailRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateReceiveEmailRequest.ProtoReflect.Descriptor instead.
 func (*UpdateReceiveEmailRequest) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{3}
+	return file_notification_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *UpdateReceiveEmailRequest) GetUserChatId() int64 {
@@ -204,6 +247,50 @@ func (x *UpdateReceiveEmailRequest) GetUserChatId() int64 {
 		return x.UserChatId
 	}
 	return 0
+}
+
+type CreateUserProfileResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ok            bool                   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateUserProfileResponse) Reset() {
+	*x = CreateUserProfileResponse{}
+	mi := &file_notification_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateUserProfileResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateUserProfileResponse) ProtoMessage() {}
+
+func (x *CreateUserProfileResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_notification_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateUserProfileResponse.ProtoReflect.Descriptor instead.
+func (*CreateUserProfileResponse) Descriptor() ([]byte, []int) {
+	return file_notification_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *CreateUserProfileResponse) GetOk() bool {
+	if x != nil {
+		return x.Ok
+	}
+	return false
 }
 
 type SetUpAuthTokenResponse struct {
@@ -215,7 +302,7 @@ type SetUpAuthTokenResponse struct {
 
 func (x *SetUpAuthTokenResponse) Reset() {
 	*x = SetUpAuthTokenResponse{}
-	mi := &file_notification_proto_msgTypes[4]
+	mi := &file_notification_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -227,7 +314,7 @@ func (x *SetUpAuthTokenResponse) String() string {
 func (*SetUpAuthTokenResponse) ProtoMessage() {}
 
 func (x *SetUpAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[4]
+	mi := &file_notification_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -240,7 +327,7 @@ func (x *SetUpAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SetUpAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*SetUpAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{4}
+	return file_notification_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *SetUpAuthTokenResponse) GetToken() string {
@@ -259,7 +346,7 @@ type ValidateAuthTokenResponse struct {
 
 func (x *ValidateAuthTokenResponse) Reset() {
 	*x = ValidateAuthTokenResponse{}
-	mi := &file_notification_proto_msgTypes[5]
+	mi := &file_notification_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -271,7 +358,7 @@ func (x *ValidateAuthTokenResponse) String() string {
 func (*ValidateAuthTokenResponse) ProtoMessage() {}
 
 func (x *ValidateAuthTokenResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[5]
+	mi := &file_notification_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -284,7 +371,7 @@ func (x *ValidateAuthTokenResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ValidateAuthTokenResponse.ProtoReflect.Descriptor instead.
 func (*ValidateAuthTokenResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{5}
+	return file_notification_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ValidateAuthTokenResponse) GetOk() bool {
@@ -303,7 +390,7 @@ type ConfirmEmailResponse struct {
 
 func (x *ConfirmEmailResponse) Reset() {
 	*x = ConfirmEmailResponse{}
-	mi := &file_notification_proto_msgTypes[6]
+	mi := &file_notification_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -315,7 +402,7 @@ func (x *ConfirmEmailResponse) String() string {
 func (*ConfirmEmailResponse) ProtoMessage() {}
 
 func (x *ConfirmEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[6]
+	mi := &file_notification_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -328,7 +415,7 @@ func (x *ConfirmEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ConfirmEmailResponse.ProtoReflect.Descriptor instead.
 func (*ConfirmEmailResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{6}
+	return file_notification_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ConfirmEmailResponse) GetOk() bool {
@@ -347,7 +434,7 @@ type UpdateReceiveEmailResponse struct {
 
 func (x *UpdateReceiveEmailResponse) Reset() {
 	*x = UpdateReceiveEmailResponse{}
-	mi := &file_notification_proto_msgTypes[7]
+	mi := &file_notification_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -359,7 +446,7 @@ func (x *UpdateReceiveEmailResponse) String() string {
 func (*UpdateReceiveEmailResponse) ProtoMessage() {}
 
 func (x *UpdateReceiveEmailResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_notification_proto_msgTypes[7]
+	mi := &file_notification_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -372,7 +459,7 @@ func (x *UpdateReceiveEmailResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateReceiveEmailResponse.ProtoReflect.Descriptor instead.
 func (*UpdateReceiveEmailResponse) Descriptor() ([]byte, []int) {
-	return file_notification_proto_rawDescGZIP(), []int{7}
+	return file_notification_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *UpdateReceiveEmailResponse) GetReceiveEmail() bool {
@@ -386,7 +473,10 @@ var File_notification_proto protoreflect.FileDescriptor
 
 const file_notification_proto_rawDesc = "" +
 	"\n" +
-	"\x12notification.proto\x12\x05proto\"9\n" +
+	"\x12notification.proto\x12\x05proto\"<\n" +
+	"\x18CreateUserProfileRequest\x12 \n" +
+	"\fuser_chat_id\x18\x01 \x01(\x03R\n" +
+	"userChatId\"9\n" +
 	"\x15SetUpAuthTokenRequest\x12 \n" +
 	"\fuser_chat_id\x18\x01 \x01(\x03R\n" +
 	"userChatId\"R\n" +
@@ -398,7 +488,9 @@ const file_notification_proto_rawDesc = "" +
 	"\x05token\x18\x01 \x01(\tR\x05token\"=\n" +
 	"\x19UpdateReceiveEmailRequest\x12 \n" +
 	"\fuser_chat_id\x18\x01 \x01(\x03R\n" +
-	"userChatId\".\n" +
+	"userChatId\"+\n" +
+	"\x19CreateUserProfileResponse\x12\x0e\n" +
+	"\x02ok\x18\x01 \x01(\bR\x02ok\".\n" +
 	"\x16SetUpAuthTokenResponse\x12\x14\n" +
 	"\x05token\x18\x01 \x01(\tR\x05token\"+\n" +
 	"\x19ValidateAuthTokenResponse\x12\x0e\n" +
@@ -406,8 +498,9 @@ const file_notification_proto_rawDesc = "" +
 	"\x14ConfirmEmailResponse\x12\x0e\n" +
 	"\x02ok\x18\x01 \x01(\bR\x02ok\"A\n" +
 	"\x1aUpdateReceiveEmailResponse\x12#\n" +
-	"\rreceive_email\x18\x01 \x01(\bR\freceiveEmail2\xe0\x02\n" +
-	"\x13NotificationService\x12M\n" +
+	"\rreceive_email\x18\x01 \x01(\bR\freceiveEmail2\xb8\x03\n" +
+	"\x13NotificationService\x12V\n" +
+	"\x11CreateUserProfile\x12\x1f.proto.CreateUserProfileRequest\x1a .proto.CreateUserProfileResponse\x12M\n" +
 	"\x0eSetUpAuthToken\x12\x1c.proto.SetUpAuthTokenRequest\x1a\x1d.proto.SetUpAuthTokenResponse\x12V\n" +
 	"\x11ValidateAuthToken\x12\x1f.proto.ValidateAuthTokenRequest\x1a .proto.ValidateAuthTokenResponse\x12G\n" +
 	"\fConfirmEmail\x12\x1a.proto.ConfirmEmailRequest\x1a\x1b.proto.ConfirmEmailResponse\x12Y\n" +
@@ -425,28 +518,32 @@ func file_notification_proto_rawDescGZIP() []byte {
 	return file_notification_proto_rawDescData
 }
 
-var file_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_notification_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_notification_proto_goTypes = []any{
-	(*SetUpAuthTokenRequest)(nil),      // 0: proto.SetUpAuthTokenRequest
-	(*ValidateAuthTokenRequest)(nil),   // 1: proto.ValidateAuthTokenRequest
-	(*ConfirmEmailRequest)(nil),        // 2: proto.ConfirmEmailRequest
-	(*UpdateReceiveEmailRequest)(nil),  // 3: proto.UpdateReceiveEmailRequest
-	(*SetUpAuthTokenResponse)(nil),     // 4: proto.SetUpAuthTokenResponse
-	(*ValidateAuthTokenResponse)(nil),  // 5: proto.ValidateAuthTokenResponse
-	(*ConfirmEmailResponse)(nil),       // 6: proto.ConfirmEmailResponse
-	(*UpdateReceiveEmailResponse)(nil), // 7: proto.UpdateReceiveEmailResponse
+	(*CreateUserProfileRequest)(nil),   // 0: proto.CreateUserProfileRequest
+	(*SetUpAuthTokenRequest)(nil),      // 1: proto.SetUpAuthTokenRequest
+	(*ValidateAuthTokenRequest)(nil),   // 2: proto.ValidateAuthTokenRequest
+	(*ConfirmEmailRequest)(nil),        // 3: proto.ConfirmEmailRequest
+	(*UpdateReceiveEmailRequest)(nil),  // 4: proto.UpdateReceiveEmailRequest
+	(*CreateUserProfileResponse)(nil),  // 5: proto.CreateUserProfileResponse
+	(*SetUpAuthTokenResponse)(nil),     // 6: proto.SetUpAuthTokenResponse
+	(*ValidateAuthTokenResponse)(nil),  // 7: proto.ValidateAuthTokenResponse
+	(*ConfirmEmailResponse)(nil),       // 8: proto.ConfirmEmailResponse
+	(*UpdateReceiveEmailResponse)(nil), // 9: proto.UpdateReceiveEmailResponse
 }
 var file_notification_proto_depIdxs = []int32{
-	0, // 0: proto.NotificationService.SetUpAuthToken:input_type -> proto.SetUpAuthTokenRequest
-	1, // 1: proto.NotificationService.ValidateAuthToken:input_type -> proto.ValidateAuthTokenRequest
-	2, // 2: proto.NotificationService.ConfirmEmail:input_type -> proto.ConfirmEmailRequest
-	3, // 3: proto.NotificationService.UpdateReceiveEmail:input_type -> proto.UpdateReceiveEmailRequest
-	4, // 4: proto.NotificationService.SetUpAuthToken:output_type -> proto.SetUpAuthTokenResponse
-	5, // 5: proto.NotificationService.ValidateAuthToken:output_type -> proto.ValidateAuthTokenResponse
-	6, // 6: proto.NotificationService.ConfirmEmail:output_type -> proto.ConfirmEmailResponse
-	7, // 7: proto.NotificationService.UpdateReceiveEmail:output_type -> proto.UpdateReceiveEmailResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
+	0, // 0: proto.NotificationService.CreateUserProfile:input_type -> proto.CreateUserProfileRequest
+	1, // 1: proto.NotificationService.SetUpAuthToken:input_type -> proto.SetUpAuthTokenRequest
+	2, // 2: proto.NotificationService.ValidateAuthToken:input_type -> proto.ValidateAuthTokenRequest
+	3, // 3: proto.NotificationService.ConfirmEmail:input_type -> proto.ConfirmEmailRequest
+	4, // 4: proto.NotificationService.UpdateReceiveEmail:input_type -> proto.UpdateReceiveEmailRequest
+	5, // 5: proto.NotificationService.CreateUserProfile:output_type -> proto.CreateUserProfileResponse
+	6, // 6: proto.NotificationService.SetUpAuthToken:output_type -> proto.SetUpAuthTokenResponse
+	7, // 7: proto.NotificationService.ValidateAuthToken:output_type -> proto.ValidateAuthTokenResponse
+	8, // 8: proto.NotificationService.ConfirmEmail:output_type -> proto.ConfirmEmailResponse
+	9, // 9: proto.NotificationService.UpdateReceiveEmail:output_type -> proto.UpdateReceiveEmailResponse
+	5, // [5:10] is the sub-list for method output_type
+	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -463,7 +560,7 @@ func file_notification_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_notification_proto_rawDesc), len(file_notification_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

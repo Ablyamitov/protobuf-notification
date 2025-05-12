@@ -19,6 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
+	NotificationService_CreateUserProfile_FullMethodName  = "/proto.NotificationService/CreateUserProfile"
 	NotificationService_SetUpAuthToken_FullMethodName     = "/proto.NotificationService/SetUpAuthToken"
 	NotificationService_ValidateAuthToken_FullMethodName  = "/proto.NotificationService/ValidateAuthToken"
 	NotificationService_ConfirmEmail_FullMethodName       = "/proto.NotificationService/ConfirmEmail"
@@ -29,6 +30,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NotificationServiceClient interface {
+	CreateUserProfile(ctx context.Context, in *CreateUserProfileRequest, opts ...grpc.CallOption) (*CreateUserProfileResponse, error)
 	SetUpAuthToken(ctx context.Context, in *SetUpAuthTokenRequest, opts ...grpc.CallOption) (*SetUpAuthTokenResponse, error)
 	ValidateAuthToken(ctx context.Context, in *ValidateAuthTokenRequest, opts ...grpc.CallOption) (*ValidateAuthTokenResponse, error)
 	ConfirmEmail(ctx context.Context, in *ConfirmEmailRequest, opts ...grpc.CallOption) (*ConfirmEmailResponse, error)
@@ -41,6 +43,16 @@ type notificationServiceClient struct {
 
 func NewNotificationServiceClient(cc grpc.ClientConnInterface) NotificationServiceClient {
 	return &notificationServiceClient{cc}
+}
+
+func (c *notificationServiceClient) CreateUserProfile(ctx context.Context, in *CreateUserProfileRequest, opts ...grpc.CallOption) (*CreateUserProfileResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateUserProfileResponse)
+	err := c.cc.Invoke(ctx, NotificationService_CreateUserProfile_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *notificationServiceClient) SetUpAuthToken(ctx context.Context, in *SetUpAuthTokenRequest, opts ...grpc.CallOption) (*SetUpAuthTokenResponse, error) {
@@ -87,6 +99,7 @@ func (c *notificationServiceClient) UpdateReceiveEmail(ctx context.Context, in *
 // All implementations must embed UnimplementedNotificationServiceServer
 // for forward compatibility.
 type NotificationServiceServer interface {
+	CreateUserProfile(context.Context, *CreateUserProfileRequest) (*CreateUserProfileResponse, error)
 	SetUpAuthToken(context.Context, *SetUpAuthTokenRequest) (*SetUpAuthTokenResponse, error)
 	ValidateAuthToken(context.Context, *ValidateAuthTokenRequest) (*ValidateAuthTokenResponse, error)
 	ConfirmEmail(context.Context, *ConfirmEmailRequest) (*ConfirmEmailResponse, error)
@@ -101,6 +114,9 @@ type NotificationServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedNotificationServiceServer struct{}
 
+func (UnimplementedNotificationServiceServer) CreateUserProfile(context.Context, *CreateUserProfileRequest) (*CreateUserProfileResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateUserProfile not implemented")
+}
 func (UnimplementedNotificationServiceServer) SetUpAuthToken(context.Context, *SetUpAuthTokenRequest) (*SetUpAuthTokenResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetUpAuthToken not implemented")
 }
@@ -132,6 +148,24 @@ func RegisterNotificationServiceServer(s grpc.ServiceRegistrar, srv Notification
 		t.testEmbeddedByValue()
 	}
 	s.RegisterService(&NotificationService_ServiceDesc, srv)
+}
+
+func _NotificationService_CreateUserProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateUserProfileRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NotificationServiceServer).CreateUserProfile(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NotificationService_CreateUserProfile_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NotificationServiceServer).CreateUserProfile(ctx, req.(*CreateUserProfileRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _NotificationService_SetUpAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -213,6 +247,10 @@ var NotificationService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "proto.NotificationService",
 	HandlerType: (*NotificationServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateUserProfile",
+			Handler:    _NotificationService_CreateUserProfile_Handler,
+		},
 		{
 			MethodName: "SetUpAuthToken",
 			Handler:    _NotificationService_SetUpAuthToken_Handler,
